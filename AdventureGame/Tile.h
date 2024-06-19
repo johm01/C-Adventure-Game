@@ -66,7 +66,7 @@ void Tile::emptyTile(string msg) {
 
 string Tile::getTileIcon() {
 	if (this->tileFound == true) {
-		return "y";
+		return "x";
 	}
 	else if(this->tileFound == false){
 		return "0";
