@@ -73,7 +73,7 @@ class Player{
 };
 
 void Player::subHP(float shp) {
-	this->hp = shp;
+	this->hp -= shp;
 }
 
 void Player::addHP(float shp) {

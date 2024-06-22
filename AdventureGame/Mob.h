@@ -13,8 +13,8 @@ class Mob {
 		float dmg;
 		float speed;
 		vector<Move> Moves;
-		double hp;
-		double maxHp;
+		float hp;
+		float maxHp;
 		bool canHeal;
 
 	public:
@@ -30,8 +30,8 @@ class Mob {
 		Move getMove(const string m);
 		vector<Move> getMoves() { return this->Moves; };
 		double getHP() { return this->hp; };
-		void setHP(double HP) { this->hp = HP; };
-		void subHP(double shp);
+		void setHP(float HP) { this->hp = HP; };
+		void subHP(float shp);
 		double getMax() { return this->maxHp; };
 		Move mobLogic (vector<Move> vm, Player p,int turn);
 		bool getCanHeal() { return this->canHeal; }
@@ -57,7 +57,7 @@ Move Mob::getMove(const string m) {
 }
 
 
-void Mob::subHP(double shp) {
+void Mob::subHP(float shp) {
 	this->hp -= shp;
 }
 

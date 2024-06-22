@@ -66,9 +66,9 @@ void BattleSystem::battle(Player p, Mob* m) {
 	}
 
 	// Perform a player speed check
+	this->turn = this->turn + 1;
 	bool sCheck = this->speedCheck(p, m);
 	if((p.getHP() > 0.0 && m->getHP() > 0.0)){
-		this->turn = this->turn + 1;
 		cout << "Please enter a move: ";
 		string moveSelected;
 		cin >> moveSelected;
@@ -98,7 +98,7 @@ void BattleSystem::battle(Player p, Mob* m) {
 			cout << "Enemy does " << m->getDmg() << "dmg" << endl;
 			p.subHP(m->getDmg());
 
-			cout << "It is player ones turn" << endl;
+			cout << "It is player Enemy turn" << endl;
 			Move currM;
 			currM = p.getMove(moveSelected);
 			if (currM.getName() == "heal") {
@@ -107,9 +107,11 @@ void BattleSystem::battle(Player p, Mob* m) {
 			else {
 				m->subHP(currM.getFloatMod());
 			}
+			this->battle(p, m);
 		}
 	}
-	else if(m->getHP() < 0.0){
+	else if(m->getHP() <= 0.0 or p.getHP() <= 0.0){
+		cout << "Battle has ended";
 		this->endBattle(p, m);
 	}
 }
