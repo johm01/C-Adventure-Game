@@ -112,7 +112,6 @@ int main()
 			cout << "Enter Class: ";
 			cin >> spec;
 			cout << endl;
-			cout << "i";
 			auto ps = aval_classes.find(spec);
 
 			if (ps != aval_classes.end()) {
